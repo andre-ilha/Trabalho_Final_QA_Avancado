@@ -155,10 +155,9 @@ if user_data:
             dados_user_df = dados_user_api(token)
             abrir_navegador(user_data['email'], user_data['password'])
             
-            # Extraindo o ID do produto do DataFrame
             produto_id = dados_user_df['idprodutos'].iloc[0] if not dados_user_df.empty else None
             
-            del_arquivo = input('Você gostaria de deletar o produto criado? Digite S [Sim] ou N [Não]').lower()
+            del_arquivo = input('Você gostaria de deletar o produto criado? Digite [S]im ou [N]ão').lower()
             if del_arquivo == 's':
                 if produto_id:
                     deletar_produto(token, produto_id)

@@ -42,3 +42,4 @@ def step_impl(context):
     WebDriverWait(context.browser, 10).until(EC.presence_of_element_located((By.XPATH, "/html/body/div/header/section[2]/nav/ul/div[1]/input"))).send_keys("Tatuagem BarberShop")
     WebDriverWait(context.browser, 10).until(EC.presence_of_element_located((By.XPATH, "//*[contains(text(), 'Tatuagem BarberShop')]")))
     assert "Tatuagem BarberShop" in context.browser.page_source
+    time.sleep(10)
