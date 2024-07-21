@@ -1,5 +1,7 @@
 from behave import given, when, then
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 @given(u'o usuario esteja na pagina de login')
@@ -17,4 +19,5 @@ def step_impl(context):
 
 @then(u'o usuario deve ser redirecionado ao seu dashboard')
 def step_impl(context):
-    assert "Joga Junto" in context.browser.title, 'Usuário não logado'
+    notification = WebDriverWait(context.browser, 10).until(EC.presence_of_element_located((By.CLASS_NAME, 'go3958317564')))
+    assert notification is not None, 'Notificação de login não encontrada'
