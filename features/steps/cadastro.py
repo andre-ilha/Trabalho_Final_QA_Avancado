@@ -30,13 +30,10 @@ def step_impl(context):
 def step_impl(context):
     context.browser.find_element(By.XPATH, '/html/body/div/header/section[2]/div/div[1]/div/form/button').click()
 
-@then(u'uma confirmacao deve retornar ao usuário')
+@then(u'uma confirmacao deve retornar ao usuário e o produto deve ser adicionado a lista de produtos')
 def step_impl(context):
     notification = WebDriverWait(context.browser, 10).until(EC.presence_of_element_located((By.CLASS_NAME, 'go3958317564')))
     assert notification is not None, 'Notificação de login não encontrada'
-
-@then(u'o produto deve ser adicionado a lista de produtos')
-def step_impl(context):
     body_element = context.browser.find_element(By.ID, 'mui-2')
     body_element.send_keys(Keys.ESCAPE)
     WebDriverWait(context.browser, 10).until(EC.presence_of_element_located((By.XPATH, "/html/body/div/header/section[2]/nav/ul/div[1]/input"))).send_keys("Tatuagem BarberShop")
