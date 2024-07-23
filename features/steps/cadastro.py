@@ -30,7 +30,7 @@ def step_impl(context):
 def step_impl(context):
     context.browser.find_element(By.XPATH, '/html/body/div/header/section[2]/div/div[1]/div/form/button').click()
 
-@then(u'uma confirmacao deve retornar ao usuario')
+@then(u'uma confirmacao deve retornar ao usuário')
 def step_impl(context):
     notification = WebDriverWait(context.browser, 10).until(EC.presence_of_element_located((By.CLASS_NAME, 'go3958317564')))
     assert notification is not None, 'Notificação de login não encontrada'
