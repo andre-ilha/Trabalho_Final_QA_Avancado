@@ -5,5 +5,5 @@ from faker import Faker
 def before_all(context):
     context.browser = webdriver.Firefox()
     
-# def after_all(context):
-#     context.browser.quit()
+def after_all(context):
+    context.browser.quit()
